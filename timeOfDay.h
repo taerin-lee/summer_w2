@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <cstdlib>
 
 namespace LeeTaerin2276249 {
 
@@ -10,7 +11,7 @@ namespace LeeTaerin2276249 {
 
         void testHour(int h) { //int h (매개변수) 없어도 됨
             if (h < 0 || h > 23) {
-                using namespace std; // 교수님은 이 줄 안 적음
+                using namespace std; 
                 cout << "Wrong hour.\n";
                 std::exit(1);
             }
@@ -19,7 +20,7 @@ namespace LeeTaerin2276249 {
 
         void testMinute(int m) {
             if (m < 0 || m > 59) {
-                using namespace std; // 교수님 이 줄 안 적음
+                using namespace std; 
                 cout << "Wrong minute.\n";
                 std::exit(1);
             }
@@ -44,17 +45,17 @@ namespace LeeTaerin2276249 {
             }
             testHour(h);
             testMinute(m);
-            hour = h; //
-            minute = m; // 교수님 이 두 줄 안 적음
+            hour = h; 
+            minute = m; 
         }
 
         void setHour(int h) {
-            testHour(h); // 교수님은 () 안에 h 안 적음
+            testHour(h); 
             hour = h;
         }
 
         void setMinute(int m) {
-            testMinute(m); //마찬가지로 괄호안에 m 안적으심
+            testMinute(m); 
             minute = m;
         }
 
