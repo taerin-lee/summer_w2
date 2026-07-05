@@ -32,9 +32,9 @@ namespace LeeTaerin2276249 {
         void input() {
             int h, m;
             std::cout << "Enter hour(0~23): ";
-            std::std::cin >> h;
+            std::cin >> h;  // 👈 제 오타를 정상적으로 수정했습니다!
             std::cout << "Enter minute(0~59): ";
-            std::std::cin >> m;
+            std::cin >> m;  // 👈 제 오타를 정상적으로 수정했습니다!
             
             testHour(h);
             testMinute(m);
