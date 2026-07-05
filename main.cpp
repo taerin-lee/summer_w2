@@ -14,6 +14,7 @@ int main() {
     alarm a1; 
     a1.print();
     
+    alarm a2{timeOfDay{11, 44}, true};
     a2.print(); 
     
     if (compareTimeOfDay(a1.getWakeTime(), a2.getWakeTime())) {
