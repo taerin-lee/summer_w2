@@ -69,9 +69,7 @@ namespace LeeTaerin2276249 {
             if (minute >= 60) {
                 minute = 0;
                 hour++;
-                if (hour >= 24) {
-                    hour = 0;
-                }
+                if (hour >= 24) {hour = 0;}
             }
             return *this; // 내 원본 객체 자체를 리턴
 
@@ -85,10 +83,8 @@ namespace LeeTaerin2276249 {
         // (괄호 안에 의미 없는 'int'를 적어주는 게 전위랑 구별하는 C++의 약속!)
         timeOfDay operator++(int) {
             timeOfDay temp = *this; // 바뀌기 전 현재 상태 저장 (복사생성자 작동)
-            
             // 위에 만든 전위 증가 함수를 재활용해서 1분 올리기
             ++(*this); 
-            
             return temp; // 1분 올라가기 전의 옛날 상태를 리턴
 
         // timeOfDay temp{hour,minute};
@@ -96,7 +92,13 @@ namespace LeeTaerin2276249 {
         // if (minute==60) {minute=0;++hour;}
         // if (hour==24){hour=0;}
         // return temp;
+        }
 
+        timeOfDay operator+=(int m) {
+            minute += m;
+            if (minute >= 60) {hour += minute/60; minute %= 60;}
+            if (hour >= 24){hour %= 24;}
+            return *this;
         }
 
         // 3. 입력 연산자 (>>): std::cin >> t; 할 때 작동
@@ -143,7 +145,7 @@ namespace LeeTaerin2276249 {
         // int totalMinutes{minute1+minute2};
         // int newMinute{totalMinutes%60};
         // int newHour{totalMinte/60};
-        // if (newHour >24)newHour = newHour%24;
+        // if (newHour >= 24) newHour = newHour%24;
         // return timeOfDay{newHour, newMinute};
             
             return timeOfDay(totalHours, totalMinutes);
